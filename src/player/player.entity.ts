@@ -1,4 +1,5 @@
 import {
+  AutoIncrement,
   Column,
   DataType,
   Model,

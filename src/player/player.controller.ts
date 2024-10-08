@@ -20,22 +20,22 @@ export class PlayerController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number): string {
-    return `This action returns a #${id} player`;
+  findOne(@Param('id') id: number): any {
+    return this.PlayerService.findOne(id);
   }
 
   @Post()
-  create(@Body() player: IPlayer): string {
-    return 'This action adds a new player';
+  create(@Body() player: IPlayer): any {
+    return this.PlayerService.create(player);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() player: IPlayer): string {
-    return `This action updates a #${id} player`;
+  update(@Param('id') id: number, @Body() player: IPlayer): any {
+    return this.PlayerService.update(id, player);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string): string {
-    return `This action removes a #${id} player`;
+  remove(@Param('id') id: number): any {
+    return this.PlayerService.remove(id);
   }
 }
