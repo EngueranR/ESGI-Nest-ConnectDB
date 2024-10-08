@@ -10,8 +10,4 @@ export class PlayerService {
   async findAll(): Promise<Player[]> {
     return this.playerRepository.findAll<Player>();
   }
-
-  async findOne(id: number): Promise<Player> {
-    return this.playerRepository.findOne<Player>({ where: { id } });
-  }
 }
