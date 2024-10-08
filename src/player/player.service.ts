@@ -24,15 +24,16 @@ export class PlayerService {
     });
   }
 
-  async update(id: number, player: IPlayer): Promise<[number]> {
+  async update(id: number, player: IPlayer): Promise<Player> {
     const findID = await this.playerRepository.findByPk<Player>(id);
     if (!findID) {
       throw new Error('Player not found');
     } else {
-      return this.playerRepository.update(
+      await this.playerRepository.update(
         { ...player },
         { where: { id: findID.id } },
       );
+      return await this.playerRepository.findByPk<Player>(id);
     }
   }
 

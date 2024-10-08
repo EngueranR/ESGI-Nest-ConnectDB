@@ -17,12 +17,12 @@ export class PlayerController {
 
   @Get()
   async findAll(): Promise<Player[]> {
-    return this.PlayerService.findAll();
+    return await this.PlayerService.findAll();
   }
 
   @Get(':id')
   async findOne(@Param('id') id: number): Promise<Player> {
-    return this.PlayerService.findOne(id);
+    return await this.PlayerService.findOne(id);
   }
 
   @Post()
@@ -34,12 +34,12 @@ export class PlayerController {
   async update(
     @Param('id') id: number,
     @Body('player') player: IPlayer,
-  ): Promise<[number]> {
-    return this.PlayerService.update(id, player);
+  ): Promise<Player> {
+    return await this.PlayerService.update(id, player);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: number): Promise<number> {
-    return this.PlayerService.remove(id);
+    return await this.PlayerService.remove(id);
   }
 }

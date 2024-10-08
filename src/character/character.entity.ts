@@ -1,4 +1,5 @@
 import {
+  AutoIncrement,
   Column,
   DataType,
   Model,
@@ -9,6 +10,7 @@ import {
 @Table
 export class Character extends Model {
   @PrimaryKey
+  @AutoIncrement
   @Column
   id: number;
 
