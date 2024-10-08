@@ -11,6 +11,7 @@ import {
 @Table
 export class Player extends Model {
   @PrimaryKey
+  @AutoIncrement
   @Column
   id: number;
 

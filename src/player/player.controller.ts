@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { IPlayer } from './player.interface';
 import { PlayerService } from './player.service';
+import { Player } from './player.entity';
 
 @Controller('player')
 export class PlayerController {
@@ -25,8 +26,8 @@ export class PlayerController {
   }
 
   @Post()
-  create(@Body() player: IPlayer): any {
-    return this.PlayerService.create(player);
+  async create(@Body('player') player: IPlayer): Promise<Player> {
+    return await this.PlayerService.create(player);
   }
 
   @Put(':id')

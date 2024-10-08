@@ -17,7 +17,7 @@ export const databaseProviders = [
       sequelize.addModels([Player, Character]);
       Player.hasMany(Character);
       Character.belongsTo(Player);
-      await sequelize.sync({ alter: true });
+      await sequelize.sync({ force: true });
       return sequelize;
     },
   },

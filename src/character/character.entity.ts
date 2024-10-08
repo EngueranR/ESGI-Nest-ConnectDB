@@ -4,10 +4,7 @@ import {
   Model,
   PrimaryKey,
   Table,
-  ForeignKey,
-  BelongsTo,
 } from 'sequelize-typescript';
-import { Player } from '../player/player.entity';
 
 @Table
 export class Character extends Model {
