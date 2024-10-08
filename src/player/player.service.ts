@@ -14,11 +14,12 @@ export class PlayerService {
   }
 
   async findOne(id: number): Promise<Player> {
-    return this.playerRepository.findByPk<Player>(id);
+    return this.playerRepository.findOne<Player>({ where: { id } });
   }
 
   async create(player: IPlayer): Promise<Player> {
     return await this.playerRepository.create<Player>({
+      ...player,
       password: bcrypt.hashSync(player.password, 10),
     });
   }
